@@ -1,7 +1,7 @@
 diff -r -u -d orig/sqlite3.c ./sqlite3.c
---- orig/sqlite3.c	2016-08-09 15:34:08.617957406 +0900
-+++ ./sqlite3.c	2016-08-09 15:33:37.958948314 +0900
-@@ -49385,15 +49385,9 @@
+--- orig/sqlite3.c	2016-08-09 15:40:05.127988031 +0900
++++ ./sqlite3.c	2016-08-09 15:40:05.144654283 +0900
+@@ -49770,15 +49770,9 @@
    unsigned pgFlags      /* Various flags */
  ){
    unsigned level = pgFlags & PAGER_SYNCHRONOUS_MASK;
@@ -20,7 +20,7 @@ diff -r -u -d orig/sqlite3.c ./sqlite3.c
    if( pPager->noSync ){
      pPager->syncFlags = 0;
      pPager->ckptSyncFlags = 0;
-@@ -50689,20 +50683,12 @@
+@@ -51074,20 +51068,12 @@
    pPager->memDb = (u8)memDb;
    pPager->readOnly = (u8)readOnly;
    assert( useJournal || pPager->tempFile );
@@ -47,7 +47,7 @@ diff -r -u -d orig/sqlite3.c ./sqlite3.c
    /* pPager->pFirst = 0; */
    /* pPager->pFirstSynced = 0; */
    /* pPager->pLast = 0; */
-@@ -96130,7 +96116,7 @@
+@@ -96680,7 +96666,7 @@
  #endif
      sqlite3BtreeLeave(aNew->pBt);
    }
@@ -56,7 +56,7 @@ diff -r -u -d orig/sqlite3.c ./sqlite3.c
    aNew->zName = sqlite3DbStrDup(db, zName);
    if( rc==SQLITE_OK && aNew->zName==0 ){
      rc = SQLITE_NOMEM_BKPT;
-@@ -138552,7 +138538,7 @@
+@@ -139408,7 +139394,7 @@
    ** database it is OFF. This matches the pager layer defaults.  
    */
    db->aDb[0].zName = "main";
